@@ -108,6 +108,13 @@ def index():
     return render_template("index.html", dados=dados_formulario)
 
 
+
+@app.route("/relatorios")
+def relatorios():                                                                   
+    return render_template("relatorios.html")
+
+
+
 # ------------------------------
 # Ponto de entrada
 # ------------------------------
