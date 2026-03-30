@@ -3,23 +3,44 @@
 {% block title %}Relatórios{% endblock %}
 
 {% block content %}
+<!-- Título da página -->
 <h2 class="mb-4">📈 Relatórios</h2>
 
+<!-- Container responsivo: permite rolagem horizontal em telas pequenas -->
 <div class="table-responsive">
-  <table class="table table-striped table-bordered align-middle">
+  <table class="table table-bordered align-middle">
+    <!-- Cabeçalho da tabela -->
     <thead class="table-dark text-center">
       <tr>
         <th>ID</th>
         <th>Nome</th>
         <th>Valor</th>
+        <th>Ações</th> <!-- coluna para botões de enfeite -->
       </tr>
     </thead>
+
+    <!-- Corpo da tabela -->
     <tbody class="text-center">
       {% for item in relatorios %}
-      <tr>
+      <!-- loop.cycle alterna classes para criar efeito zebra -->
+      <tr class="{{ loop.cycle('table-light', 'table-dark') }}">
+        <!-- ID do item -->
         <td>{{ item.id }}</td>
+        <!-- Nome do item -->
         <td>{{ item.nome }}</td>
+        <!-- Valor do item formatado com 2 casas decimais -->
         <td>{{ "%.2f"|format(item.valor) }}</td>
+        <!-- Coluna de Ações -->
+        <td>
+          <!-- Botão de editar apenas de enfeite -->
+          <button class="btn btn-sm btn-primary me-1">
+            ✏️ Editar
+          </button>
+          <!-- Botão de excluir apenas de enfeite -->
+          <button class="btn btn-sm btn-danger">
+            🗑️ Excluir
+          </button>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
