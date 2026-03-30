@@ -1,0 +1,79 @@
+{# ── herda o template pai ─────────────────────────────────────────────────── #}
+{% extends "base.html" %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+
+    <h2 class="mb-4">Título da Página</h2>
+
+    {# ── formulário ───────────────────────────────────────────────────────── #}
+    {# action=""      → envia para a mesma rota                               #}
+    {# method="post"  → método HTTP POST                                      #}
+    {# novalidate     → desativa validação HTML5, usamos a do servidor        #}
+    <form action="" method="post" novalidate>
+
+      {# campo 1 — number com decimal #}
+      {# value="{{ dados.nome_do_campo1 if dados.nome_do_campo1 else '' }}" → re-popula em caso de erro #}
+      <div class="mb-3">
+        <label for="nome_do_campo1" class="form-label">Label do Campo 1</label>
+        <input
+          type="number"
+          class="form-control"
+          id="nome_do_campo1"
+          name="nome_do_campo1"
+          step="0.01"
+          min="0.01"
+          placeholder="Ex.: 100.00"
+          required
+          value="{{ dados.nome_do_campo1 if dados.nome_do_campo1 else '' }}"
+        />
+      </div>
+
+      {# campo 2 — number inteiro #}
+      <div class="mb-3">
+        <label for="nome_do_campo2" class="form-label">Label do Campo 2</label>
+        <input
+          type="number"
+          class="form-control"
+          id="nome_do_campo2"
+          name="nome_do_campo2"
+          step="1"
+          min="1"
+          placeholder="Ex.: 4"
+          required
+          value="{{ dados.nome_do_campo2 if dados.nome_do_campo2 else '' }}"
+        />
+      </div>
+
+      {# campo 3 — number com decimal #}
+      <div class="mb-3">
+        <label for="nome_do_campo3" class="form-label">Label do Campo 3 (%)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="nome_do_campo3"
+          name="nome_do_campo3"
+          step="0.1"
+          min="0"
+          placeholder="Ex.: 10"
+          required
+          value="{{ dados.nome_do_campo3 if dados.nome_do_campo3 else '' }}"
+        />
+      </div>
+
+      {# botões #}
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success w-100">Calcular</button>
+        <button type="reset"  class="btn btn-outline-secondary">Limpar</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

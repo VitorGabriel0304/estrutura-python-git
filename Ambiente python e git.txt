@@ -1,0 +1,153 @@
+# 🚀 Setup Completo Python + Flask + Git (Windows)
+
+## 🐍 1. Criar e configurar ambiente virtual
+
+```bash
+# Criar ambiente virtual
+python -m venv venv
+
+# Ativar ambiente (Windows)
+venv\Scripts\activate
+
+# Atualizar pip (opcional)
+python -m pip install --upgrade pip
+
+# Instalar Flask
+pip install flask
+
+# Criar arquivo de dependências (manual)
+echo flask > requirements.txt
+```
+
+---
+
+## ▶️ 2. Criar aplicação Flask
+
+Crie um arquivo chamado `app.py`:
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Funcionando 🚀"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+Rodar o projeto:
+
+```bash
+python app.py
+```
+
+Acesse no navegador:
+
+```
+http://127.0.0.1:5000/
+```
+
+---
+
+## 📁 3 .gitignore
+
+```bash
+# Ambiente virtual — nunca versionar
+venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# Configurações locais do VS Code
+.vscode/
+
+# Variáveis de ambiente sensíveis (senhas, chaves)
+.env
+```
+
+## 🧠 4. Configurar Git (MÁQUINA COMPARTILHADA)
+
+```bash
+# Iniciar repositório
+git init
+
+# Configurar usuário SOMENTE neste projeto
+git config user.name "Seu Nome"
+git config user.email "seu@email.com"
+
+# Conectar com repositório remoto
+git remote add origin https://github.com/seu-user/seu-repo.git
+
+# Primeiro commit
+git add .
+git commit -m "primeiro commit"
+
+# Enviar para o GitHub
+git push -u origin main
+```
+
+---
+
+## 🔐 5. Segurança (IMPORTANTE)
+
+NÃO use:
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+Após terminar:
+
+```bash
+git credential-manager reject https://github.com
+```
+
+---
+
+## ⚡ RESUMO RÁPIDO
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+pip install flask
+echo flask > requirements.txt
+
+git init
+git config user.name "Seu Nome"
+git config user.email "Seu Email"
+git add .
+git commit -m "init"
+git push
+```
+
+---
+
+## ✅ Resultado esperado
+
+* Ambiente virtual ativo `(venv)`
+* Flask rodando
+* Projeto versionado no Git
+* Código salvo no GitHub com segurança
+
+---
+
+projeto-web/
+│
+├── app.py                  ← arquivo principal: inicia o servidor Flask
+├── requirements.txt        ← lista de dependências
+├── .gitignore              ← arquivos que o Git deve ignorar
+├── venv/                   ← ambiente virtual (ignorado pelo Git)
+│
+├── templates/              ← arquivos HTML (as Views do MVC)
+│   └── index.html
+│
+└── static/                 ← arquivos estáticos (CSS, JS, imagens)
+    ├── css/
+    ├── js/
+    └── imgs/
+```

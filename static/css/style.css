@@ -1,0 +1,39 @@
+/* style.css — estilos personalizados (carregado APÓS o Bootstrap) */
+
+
+/* ── rodapé ─────────────────────────────────────────────────────────────── */
+.footer-custom {
+  background-color: ;   /* cor de fundo */
+  color: ;              /* cor do texto */
+  border-top: px solid ;/* linha no topo */
+}
+
+
+/* ── navbar / cabeçalho ─────────────────────────────────────────────────── */
+.navbar {
+  border-bottom: px solid ; /* linha de destaque abaixo da navbar */
+}
+
+
+/* ── classificação A ────────────────────────────────────────────────────── */
+/* ex.: Mão de vaca — sugestão: cinza */
+.classificacao-a {
+  background-color: ; /* cor de fundo do badge */
+  color: ;            /* cor do texto */
+}
+
+
+/* ── classificação B ────────────────────────────────────────────────────── */
+/* ex.: Legal — sugestão: verde */
+.classificacao-b {
+  background-color: ;
+  color: ;
+}
+
+
+/* ── classificação C ────────────────────────────────────────────────────── */
+/* ex.: Generoso — sugestão: dourado */
+.classificacao-c {
+  background-color: ;
+  color: ;
+}

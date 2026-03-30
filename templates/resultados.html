@@ -1,0 +1,74 @@
+{# ── herda o template pai ─────────────────────────────────────────────────── #}
+{% extends "base.html" %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+
+    <h2 class="mb-4">Resultado do Cálculo</h2>
+
+    {# ── badge de classificação ───────────────────────────────────────────── #}
+    {# if/elif/else do Jinja2 — troca a classe CSS conforme a classificação   #}
+    <div class="text-center mb-4">
+      {% if resultados.classificacao == "Categoria A" %}
+        <span class="badge classificacao-a fs-5 px-4 py-2">{{ resultados.classificacao }}</span>
+
+      {% elif resultados.classificacao == "Categoria B" %}
+        <span class="badge classificacao-b fs-5 px-4 py-2">{{ resultados.classificacao }}</span>
+
+      {% else %}
+        <span class="badge classificacao-c fs-5 px-4 py-2">{{ resultados.classificacao }}</span>
+
+      {% endif %}
+    </div>
+
+    {# ── tabela de resultados ─────────────────────────────────────────────── #}
+    {# "%.2f" % valor → formata número com 2 casas decimais                   #}
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Descrição</th>
+          <th class="text-end">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Label Campo 1</td>
+          <td class="text-end">{{ "%.2f" % resultados.campo1_original }}</td>
+        </tr>
+        <tr>
+          <td>Label Campo 2</td>
+          <td class="text-end">{{ resultados.campo2 }}</td>
+        </tr>
+        <tr>
+          <td>Label Campo 3 (%)</td>
+          <td class="text-end">{{ "%.1f" % resultados.campo3 }}%</td>
+        </tr>
+        <tr>
+          <td>Resultado 1</td>
+          <td class="text-end">{{ "%.2f" % resultados.resultado1 }}</td>
+        </tr>
+        <tr>
+          <td>Resultado 2</td>
+          <td class="text-end">{{ "%.2f" % resultados.resultado2 }}</td>
+        </tr>
+        <tr class="table-success fw-bold">
+          <td>Resultado 3 (destaque)</td>
+          <td class="text-end">{{ "%.2f" % resultados.resultado3 }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {# ── link para novo cálculo ───────────────────────────────────────────── #}
+    {# url_for("index") gera a URL da função index() do app.py                #}
+    <div class="text-center mt-3">
+      <a href="{{ url_for('index') }}" class="btn btn-outline-dark">Novo cálculo</a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
