@@ -110,8 +110,14 @@ def index():
 
 
 @app.route("/relatorios")
-def relatorios():                                                                   
-    return render_template("relatorios.html")
+def relatorios():                       
+    relatorios = [
+        {"id": 1, "nome": "Item A", "valor": 100.50},
+        {"id": 2, "nome": "Item B", "valor": 250.75},
+        {"id": 3, "nome": "Item C", "valor": 75.20},
+        {"id": 4, "nome": "Item D", "valor": 420.00},
+    ]                                            
+    return render_template("relatorios.html", relatorios=relatorios)
 
 
 
