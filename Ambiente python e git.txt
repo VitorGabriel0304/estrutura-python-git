@@ -92,22 +92,28 @@ git push -u origin main
 
 ---
 
-## 🔐 5. Segurança (IMPORTANTE)
-
-NÃO use:
-
 ```bash
-git config --global user.name
-git config --global user.email
+# adicionar o repositório remoto (troque pela URL do seu GitHub)
+git remote add origin https://github.com/seu-user/seu-repo.git
+
+# renomear a branch de master para main (padrão atual)
+git branch -M main
+
+# enviar o projeto para o GitHub e criar vínculo (upstream)
+git push -u origin main
 ```
 
-Após terminar:
+# 📌 Depois disso
 
-```bash
-git credential-manager reject https://github.com
+# você pode usar apenas:
+
+git push
+
+```
 ```
 
----
+
+
 
 ## ⚡ RESUMO RÁPIDO
 
