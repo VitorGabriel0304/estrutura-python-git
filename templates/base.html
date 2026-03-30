@@ -24,13 +24,101 @@
   <body>
     {# ── navbar ─────────────────────────────────────────────────────────────
     #}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="{{ url_for('index') }}"
-          >Nome da Aplicação</a
-        >
-      </div>
-    </nav>
+    {# ── navbar ───────────────────────────────────────────────────────────── #}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+
+    {# Nome/logo da aplicação (leva para página inicial) #}
+    <a class="navbar-brand" href="{{ url_for('index') }}">
+      Nome da Aplicação
+    </a>
+
+    {# Botão responsivo (menu hamburguer no mobile) #}
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {# Itens da navbar #}
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      {# ── LADO ESQUERDO ───────────────────────────── #}
+      <ul class="navbar-nav me-auto">
+
+        {# Botão Home (FUNCIONA pois já existe rota index) #}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}">
+            🏠 Home
+          </a>
+        </li>
+
+        {# Botões de ENFEITE (não precisam de rota) #}
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            📊 Dashboard
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            📁 Projetos
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            📈 Relatórios
+          </a>
+        </li>
+
+        {# Dropdown (menu suspenso - muito usado em prova) #}
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            ⚙️ Opções
+          </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Configurações</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Ajuda</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      {# ── LADO DIREITO ───────────────────────────── #}
+      <ul class="navbar-nav">
+
+        {# Botões estilo "ação" (mais bonitos visualmente) #}
+        <li class="nav-item me-2">
+          <a class="btn btn-outline-light btn-sm" href="#">
+            Login
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="btn btn-warning btn-sm" href="#">
+            Cadastro
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
 
     {# ── flash messages ─────────────────────────────────────────────────────
     #} {# get_flashed_messages(with_categories=True) retorna lista de
